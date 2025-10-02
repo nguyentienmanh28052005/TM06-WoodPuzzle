@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using Pixelplacement;
@@ -31,7 +32,13 @@ public class SaveDataPlayer : Singleton<SaveDataPlayer>
         filePath = Path.Combine(Application.persistentDataPath, "NicePuzzleSave.json");
         LoadData();
     }
-    
+
+    public void Start()
+    {
+        Save(1, 3);
+        SaveData();
+    }
+
     // QUAN TRỌNG: Thêm hàm này để lưu dữ liệu khi ứng dụng bị tạm dừng trên di động
     private void OnApplicationPause(bool pauseStatus)
     {
@@ -42,24 +49,25 @@ public class SaveDataPlayer : Singleton<SaveDataPlayer>
     }
 
     // Update chỉ nên dùng để test trong Editor
-    private void Update()
+    public void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Alpha4))
         {
             Debug.Log("Save Test");
             Save(key, value);
+            SaveData();
         }
-        if (Input.GetKeyUp(KeyCode.Alpha2))
+        if (Input.GetKeyDown(KeyCode.Alpha5))
         {
             Debug.Log("Load Test");
             Value(key);
         }
-        if (Input.GetKeyUp(KeyCode.Alpha3))
-        {
-            ResetData();
-            SaveData(); // Lưu lại trạng thái đã reset
-            Debug.Log("Data Reset and Saved");
-        }
+        // if (Input.GetKeyUp(KeyCode.Alpha3))
+        // {
+        //     ResetData();
+        //     SaveData(); // Lưu lại trạng thái đã reset
+        //     Debug.Log("Data Reset and Saved");
+        // }
     }
 
     public void Save(int key, float value)

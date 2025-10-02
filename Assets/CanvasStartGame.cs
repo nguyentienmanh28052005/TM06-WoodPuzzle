@@ -18,6 +18,6 @@ public class CanvasStartGame : MonoBehaviour
 
     public void StartGame()
     {
-        SceneController.Instance.LoadScene("GameScene", false, false);
+        SceneController.Instance.LoadScene("GameMenu", false, false);
     }
 }

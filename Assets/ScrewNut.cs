@@ -16,11 +16,11 @@ public class ScrewNut : MonoBehaviour, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        if (empty && GameManager.Instance.currentScrew != null && GameManager.Instance.currentScrew.screwed == false && !GameManager.Instance.controller.busy)
+        if (empty && GameManager.Instance.currentScrew != null && GameManager.Instance.currentScrew.screwed == false && !GameManager.Instance.busy)
         {
             if (GameManager.Instance.currentScrewNut != this)
             {
-                GameManager.Instance.controller.busy = true;
+                GameManager.Instance.busy = true;
                 GameManager.Instance.currentScrewNut.empty = true;
                 GameManager.Instance.currentScrewNut.collier.isTrigger = true;
                 GameManager.Instance.currentScrewNut = this;
@@ -32,11 +32,13 @@ public class ScrewNut : MonoBehaviour, IPointerDownHandler
                     GameManager.Instance.currentScrew.transform.DOScale(1f, 0.15f);
                     GameManager.Instance.currentScrew.transform.DORotate(new Vector3(0f, 0f, 0f), 0.15f).OnComplete(() =>
                     {
+                        GameManager.Instance.currentScrew.particalEffect.Clear();
+                        GameManager.Instance.currentScrew.particalEffect.Play();
                         GameManager.Instance.currentScrewNut.empty = false;
                         GameManager.Instance.currentScrewNut.collier.isTrigger = true;
                         collier.isTrigger = false;
                         GameManager.Instance.currentScrew = null;
-                        GameManager.Instance.controller.busy = false;
+                        GameManager.Instance.busy = false;
                     });
                 });
                 // GameManager.Instance.currentScrew

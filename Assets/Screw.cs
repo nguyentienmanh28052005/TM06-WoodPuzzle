@@ -7,6 +7,7 @@ public class Screw : MonoBehaviour, IPointerDownHandler
 {
     public CircleCollider2D collier;
     public bool screwed = true;
+    public ParticleSystem particalEffect;
 
     public void Start()
     {
@@ -15,7 +16,7 @@ public class Screw : MonoBehaviour, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        if (!GameManager.Instance.controller.busy)
+        if (!GameManager.Instance.busy)
         {
             Debug.Log("OnPointerDown: " + gameObject.name);
             ScrewNut currentNut = GetComponentInParent<ScrewNut>();
@@ -54,6 +55,8 @@ public class Screw : MonoBehaviour, IPointerDownHandler
             {
                 if (GameManager.Instance.currentScrew == this)
                 {
+                    particalEffect.Clear();
+                    particalEffect.Play();
                     GameManager.Instance.currentScrewNut.empty = false;
                     GameManager.Instance.currentScrewNut.collier.isTrigger = true;
                     collier.isTrigger = false;
