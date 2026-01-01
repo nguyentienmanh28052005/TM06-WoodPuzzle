@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7520924835307786808}
   - component: {fileID: 2199786435466252933}
   - component: {fileID: 4499222851688122492}
+  - component: {fileID: 1702938710665501827}
   m_Layer: 0
   m_Name: ScrewAndNut
   m_TagString: Untagged
@@ -136,6 +137,41 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   empty: 1
   collier: {fileID: 2199786435466252933}
+--- !u!58 &1702938710665501827
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6042262630680783065}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.0008639693}
+  serializedVersion: 2
+  m_Radius: 0.5457291
 --- !u!1001 &3092390308627413323
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -147,22 +183,6 @@ PrefabInstance:
     - target: {fileID: 3809918209440881578, guid: 60a967b5b6e22674f943044adc9d5a4f, type: 3}
       propertyPath: m_Name
       value: Screw
-      objectReference: {fileID: 0}
-    - target: {fileID: 3843982573131397967, guid: 60a967b5b6e22674f943044adc9d5a4f, type: 3}
-      propertyPath: m_Radius
-      value: 0.44
-      objectReference: {fileID: 0}
-    - target: {fileID: 9032248841921625715, guid: 60a967b5b6e22674f943044adc9d5a4f, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9032248841921625715, guid: 60a967b5b6e22674f943044adc9d5a4f, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9032248841921625715, guid: 60a967b5b6e22674f943044adc9d5a4f, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9032248841921625715, guid: 60a967b5b6e22674f943044adc9d5a4f, type: 3}
       propertyPath: m_LocalPosition.x
